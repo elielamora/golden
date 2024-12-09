@@ -10,8 +10,8 @@ func TestGolden(t *testing.T) {
 			Assert(t, []byte("Hello yet again, Golden!\n"))
 		})
 		t.Run("with_file_ext.json", func(t *testing.T) {
-			Assert(t, []byte(`{"msg": "Hello with file ext"}
-			`))
+			AssertString(t, `{"msg": "Hello with file ext"}
+			`)
 		})
 	})
 }

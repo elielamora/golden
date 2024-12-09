@@ -29,6 +29,14 @@ func Assert(t *testing.T, actual []byte, msgAndArgs ...any) {
 	assert.Equal(t, expected, actual, msgAndArgs...)
 }
 
+// AssertString compares the golden file to the actual data as a string.
+// If the golden files are being updated then it writes and always passes.
+func AssertString(t *testing.T, actual string, msgAndArgs ...any) {
+	t.Helper()
+	expected := Value(t, []byte(actual))
+	assert.Equal(t, string(expected), actual, msgAndArgs...)
+}
+
 // Value gets the raw data from the filesystem
 func Value(t *testing.T, actual []byte) []byte {
 	t.Helper()
